@@ -1,0 +1,14 @@
+title: wmo log
+description: Hello World!
+author: Wonjong Mo
+baseurl: ""
+
+url: "https://wm-o.github.io"
+
+markdown: kramdown
+
+plugins:
+  - jekyll-feed # For search posts
+
+include:
+  - _pages # For about.md

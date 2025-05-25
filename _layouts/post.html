@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<article class="post-content-article">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <div class="post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}" class="post-date">{{ page.date | date: "%Y-%m-%d" }}</time>
+    </div>
+
+    <div class="post-body">
+        {{ content }}
+    </div>
+
+    {% if page.previous.url or page.next.url %}
+    <div class="post-navigation">
+        {% if page.previous.url %}
+        <a href="{{ page.previous.url | relative_url }}" class="previous-post-link">&laquo; 이전 글: {{ page.previous.title }}</a>
+        {% endif %}
+        {% if page.next.url %}
+        <a href="{{ page.next.url | relative_url }}" class="next-post-link">다음 글: {{ page.next.title }} &raquo;</a>
+        {% endif %}
+    </div>
+    {% endif %}
+</article>

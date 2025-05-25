@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ page.title | default: site.title }}</title>
+        <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+        <link href="https://fonts.googleapis.com/css2?family=Verdana&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script src="https://unpkg.com/lunr/lunr.js"></script>
+        <script src="{{ '/assets/js/search-in-place.js' | relative_url }}" defer></script>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <div class="header-content">
+                    <span class="post-counter"></span>
+                    <h1 class="site-title"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+                    <span class="tagline">{{ site.description }}</span>
+                    <div class="nav-links">
+                        <a href="{{ '/' | relative_url }}">Posts</a> |
+                        <a href="{{ '/about/' | relative_url }}">About</a> 
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                {{ content }}
+
+                <div id="footer-search-results-area" style="display:none;">
+                    <h3>검색 결과:</h3>
+                    <ul id="footer-search-results" class="post-list"></ul>
+                    <button id="clear-footer-search" style="display:none; margin-top: 10px; padding: 5px 10px; cursor: pointer;">검색 결과 지우기</button>
+                </div>
+            </main>
+
+            <footer>
+                <div class="footer-content-wrapper">
+                    <div class="footer-links">
+                        <a href="{{ '/' | relative_url }}">Home</a> |
+                        <a href="{{ '/about/' | relative_url }}">About</a> |
+                        <a href="https://github.com/wm-o" target="_blank">GitHub</a>
+                    </div>
+                    <div class="footer-search">
+                        <form id="footer-search-form">
+                            <input type="text" id="footer-search-box" name="query" placeholder="Search..." aria-label="Search">
+                            <button type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="footer-bottom-text">
+                    <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+                </div>
+            </footer>
+        </div>
+
+    </body>
+</html>
